@@ -47,7 +47,7 @@ It should have the following columns:
 
 
 
-# 6. READ A SPECIFIC SUBSET
+# 6. READ A SPECIFIC SUBSET (OPTION 3)
 # Add option 3. Option 3 should ask for an owner's name. If the owner name
 # exists, make it show all the cats with that owner_name. If the owner_name
 # doesn't exist in the database, display a message that that owner couldn't be
@@ -55,20 +55,18 @@ It should have the following columns:
 
 
 
-# 6. FIND THE YOUNGEST CAT
+# 6. FIND THE YOUNGEST CAT (OPTION 4)
 # Add option 4. Option 4 should display the the get_info of the youngest cat 
 # in the database. For simplicity, if there is a tie for the youngest, you 
 # can just display one. (If you want a little extra challenge, feel free to
 # try and write code that accounts for a tie for youngest age)
 
 
-
-# 7. UPDATE A ROW 
+# 7. UPDATE A ROW  (OPTION 5)
 # Add option 5. Enter a cat's id to get it, then enter a new name, and save
 # that name. For time's sake you can assume the Id entered will always be valid
 
 
-
-# 8. DELETE A ROW
+# 8. DELETE A ROW (OPTION 6)
 # Add option 6. Enter a cat's id to get it, then delete it. Print out a
 # message that it was deleted.

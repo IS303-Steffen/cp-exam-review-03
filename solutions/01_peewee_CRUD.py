@@ -82,7 +82,7 @@ while True:
 
     elif option == "5":
         cat_id = int(input("Enter cat ID to update: "))
-        cat_object = Cat.get_by_id(cat_id)
+        cat_object = Cat.get(Cat.cat_id == cat_id)
         #cat = Cat.get(Cat.cat_id == cat_id)
         new_name = input("Enter new cat name: ")
         cat_object.cat_name = new_name.strip().capitalize()
@@ -91,9 +91,16 @@ while True:
 
     elif option == "6":
         cat_id = int(input("Enter cat ID to delete: "))
-        cat_object = Cat.get_by_id(cat_id)
+        cat_object = Cat.get(Cat.cat_id == cat_id)
         cat_object.delete_instance()
         print("Cat deleted successfully.\n")
+
+    elif option == "7":
+        owner_name_input = input("Enter an owner's name to see their youngest cat: ")
+        # now we need to look at all that owner's cats, but only display the youngest
+
+        youngest_cat_object = Cat.select().where(Cat.owner_name == owner_name_input).order_by(Cat.age).first()
+        print(youngest_cat_object.get_info())
 
     elif option.lower() == "exit":
         break
@@ -103,8 +110,6 @@ while True:
 
 # Cleanup
 db.close()
-
-
 
 
 # 2. CREATE A ROW USING INPUTS
@@ -136,7 +141,7 @@ db.close()
 
 
 
-# 6. READ A SPECIFIC SUBSET
+# 6. READ A SPECIFIC SUBSET (OPTION 3)
 # Add option 3. Option 3 should ask for an owner's name. If the owner name
 # exists, make it show all the cats with that owner_name. If the owner_name
 # doesn't exist in the database, display a message that that owner couldn't be
@@ -144,20 +149,18 @@ db.close()
 
 
 
-# 6. FIND THE YOUNGEST CAT
+# 6. FIND THE YOUNGEST CAT (OPTION 4)
 # Add option 4. Option 4 should display the the get_info of the youngest cat 
 # in the database. For simplicity, if there is a tie for the youngest, you 
 # can just display one. (If you want a little extra challenge, feel free to
 # try and write code that accounts for a tie for youngest age)
 
 
-
-# 7. UPDATE A ROW 
+# 7. UPDATE A ROW  (OPTION 5)
 # Add option 5. Enter a cat's id to get it, then enter a new name, and save
 # that name. For time's sake you can assume the Id entered will always be valid
 
 
-
-# 8. DELETE A ROW
+# 8. DELETE A ROW (OPTION 6)
 # Add option 6. Enter a cat's id to get it, then delete it. Print out a
 # message that it was deleted.
